@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقعي الإلكتروني</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+        }
+        
+        .container {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #0056b3;
+        }
+        
+        #visitor-count {
+            font-size: 3em;
+            font-weight: bold;
+            color: #d9534f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>مرحباً بكم في موقعي!</h1>
+        <p>عدد الزوار الحاليين:</p>
+        <div id="visitor-count">0</div>
+    </div>
+
+    <script>
+        // هذا الجزء من الشفرة يعمل على حساب عدد الزوار
+        document.addEventListener('DOMContentLoaded', () => {
+            const visitorCountElement = document.getElementById('visitor-count');
+            let visitors = localStorage.getItem('visitors');
+
+            if (visitors) {
+                visitors = parseInt(visitors) + 1;
+            } else {
+                visitors = 1;
+            }
+
+            localStorage.setItem('visitors', visitors);
+            visitorCountElement.textContent = visitors;
+        });
+    </script>
+</body>
+
+</html>
